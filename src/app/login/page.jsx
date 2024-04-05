@@ -12,7 +12,7 @@ const Login = () =>{
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">Email</label>
                             <div className="mt-2">
-                            <input id="email" name="email" type="email" autoComplete="email" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"/>
+                                <input id="email" name="email" type="email" autoComplete="email" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset p-2 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"/>
                             </div>
                         </div>
 
@@ -24,7 +24,7 @@ const Login = () =>{
                                 </div>
                             </div>
                             <div className="mt-2">
-                                <input id="password" name="password" type="password" autoComplete="current-password" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"/>
+                                <input id="password" name="password" type="password" autoComplete="current-password" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm p-2 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"/>
                             </div>
                         </div>
 
@@ -34,7 +34,7 @@ const Login = () =>{
                     </form>
 
                     <p className="mt-10 text-center text-sm text-gray-500">
-                        Don't you have an account yet? {" "}
+                        Don't have an account yet? {" "}
                         <a href="#" className="font-semibold leading-6 text-gray-800 hover:text-gray-400">Sign up</a>
                     </p>
                 </div>
