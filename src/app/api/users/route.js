@@ -13,13 +13,9 @@ export async function GET() {
 
 export async function POST(request) {
     try {
-        const {fullName, email, password} = await request.json()
+        const data = await request.json()
         const newUser = await prisma.user.create({
-            data: {
-                fullName,
-                email,
-                password
-            }
+            data: data
         })
         return NextResponse.json(newUser)
     } catch (error) {
