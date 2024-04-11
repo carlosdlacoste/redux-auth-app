@@ -4,9 +4,10 @@ import bcrypt from "bcrypt";
 
 export async function GET() {
     try {
-        
         const users = await prisma.user.findMany()
-        return NextResponse.json(users)
+        if (users.length !== 0) return NextResponse.json(users, {status: 200})
+        return NextResponse.json({"message": "There are no users!"}, {status: 404})
+        
     } catch (error) {
         return NextResponse.json(error.message)
     }
