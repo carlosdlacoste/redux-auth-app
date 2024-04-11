@@ -16,6 +16,9 @@ export async function GET() {
 export async function POST(request) {
     try {
         const data = await request.json()
+        if(data.fullName == null) return NextResponse.json({"message": "full name was not found"}, {status: 404})
+        if(data.email == null) return NextResponse.json({"message": "Email was not found"}, {status: 404})
+        if(data.password == null) return NextResponse.json({"message": "Password was not found"}, {status: 404})
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(data.password, salt);
         const newUser = await prisma.user.create({
