@@ -19,12 +19,26 @@ export async function GET(request, {params}){
 
 
 export async function DELETE(request, {params}) {
-    await prisma.user.delete({
-        where: {
-            id: Number(params.id)
+    try {
+        const user = await prisma.user.findUnique({
+            where: {
+                id: Number(params.id)
+            }
+        })
+        if(user !== null){
+
+            const userDeleted = await prisma.user.delete({
+                where: {
+                    id: Number(params.id)
+                }
+            })
+            if(userDeleted !== null) return NextResponse.json({"message": `User with id ${params.id} has been eliminated`, user: userDeleted})
         }
-    })
-    return NextResponse.json({"message": `User ${params.id} has been eliminated`})
+        return NextResponse.json({"message": "User not found"})
+    } catch (error) {
+        return NextResponse.json(error.message)
+    }
+
 }
 
 
