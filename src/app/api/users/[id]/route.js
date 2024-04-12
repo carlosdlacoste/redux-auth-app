@@ -10,7 +10,8 @@ export async function GET(request, {params}){
                 id: Number(params.id)
             }
         })
-        return NextResponse.json(user)
+        if(user !== null) return NextResponse.json(user, {status: 200})
+        return NextResponse.json({"message": "Error! That user doesn't exist"}, {status: 404})
     } catch (error) {
         return NextResponse.json(error.message)
     }
