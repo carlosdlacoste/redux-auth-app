@@ -1,4 +1,4 @@
-import Login from "@/app/login/page";
+
 
 const SignUp = () =>{
     return(
