@@ -12,6 +12,24 @@ export const getUsers = createAsyncThunk('get/users', async () =>{
     }
 })
 
+export const addNewUser = createAsyncThunk('post/new_user', async (newUser) => {
+    try {
+        const resp = await fetch("/api/users", {
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify(newUser),
+        })
+        const data = await resp.json()
+        return data
+    } catch (error) {
+        console.log(error)
+    }
+})
+
 const initialState = {
     data: [],
     loading: false,
@@ -34,6 +52,21 @@ export const userSlice = createSlice({
                 state.error = null
             })
             .addCase(getUsers.rejected, (state, action) => {
+                state.loading = false
+                state.error = action.payload
+            })
+            .addCase(addNewUser.fulfilled, (state, action) => {
+                state.addNewUserStatus = 'the user was registered successfully'
+                state.loading = false
+                state.error = null
+            })
+            .addCase(addNewUser.pending, (state, action) => {
+                state.addNewUserStatus = 'the user is being created in this moment'
+                state.loading = true
+                state.error = null
+            })
+            .addCase(addNewUser.rejected, (state, action) => {
+                state.addNewUserStatus = 'the user was not registered'
                 state.loading = false
                 state.error = action.payload
             })
