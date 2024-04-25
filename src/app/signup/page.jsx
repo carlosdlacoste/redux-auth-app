@@ -1,6 +1,14 @@
-
+"use client"
+import { useState } from "react";
 
 const SignUp = () =>{
+
+    const [user, setUser] = useState({})
+
+    // const handleAddUser = async () =>{
+
+    // }
+
     return(
         <>
             <div className="flex h-screen flex-col justify-center items-center px-6 py-12 lg:px-8">
@@ -13,20 +21,20 @@ const SignUp = () =>{
                         <div>
                             <label htmlFor="fullName" className="block text-sm font-medium leading-6 text-gray-900">Full Name</label>
                             <div className="mt-2">
-                                <input id="fullName" name="full-name" type="text" autoComplete="full-name" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 p-2 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"/>
+                                <input id="fullName" name="full-name" type="text" onChange={(event) => setUser({...user, fullName: event.target.value})} value={user.fullName || ''} autoComplete="full-name" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 p-2 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"/>
                             </div>
                         </div>
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">Email</label>
                             <div className="mt-2">
-                                <input id="email" name="email" type="email" autoComplete="email" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset p-2 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"/>
+                                <input id="email" name="email" type="email" onChange={(event) => setUser({...user, email: event.target.value})} value={user.email || ''} autoComplete="email" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset p-2 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"/>
                             </div>
                         </div>
 
                         <div>
                             <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">Password</label>
                             <div className="mt-2">
-                                <input id="password" name="password" type="password" autoComplete="current-password" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm p-2 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"/>
+                                <input id="password" name="password" type="password" onChange={(event) => setUser({...user, password: event.target.value})} value={user.password || ''} autoComplete="current-password" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm p-2 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"/>
                             </div>
                         </div>
 
@@ -41,7 +49,6 @@ const SignUp = () =>{
                     </p>
                 </div>
             </div>
-        
         </>
     )
 }
