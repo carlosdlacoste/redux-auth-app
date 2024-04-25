@@ -7,15 +7,15 @@ import { getUsers } from "@/redux/userSlice";
 
 
 export default function Home() {
-  
+
   const dispatch = useDispatch()
-  const users = useSelector(state => state.users)
+  // const users = useSelector(state => state.users)
 
   useEffect(() =>{
     dispatch(getUsers())
   }, [])
 
-  console.log(users)
+  // console.log(users)
 
   return (
       <>
