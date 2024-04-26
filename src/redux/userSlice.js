@@ -25,7 +25,6 @@ export const addNewUser = createAsyncThunk('post/new_user', async (newUser) => {
             body: JSON.stringify(newUser),
         })
         const data = await resp.json()
-        console.log(data)
         return data
     } catch (error) {
         console.log(error)
