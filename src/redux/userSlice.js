@@ -18,12 +18,14 @@ export const addNewUser = createAsyncThunk('post/new_user', async (newUser) => {
             method: "POST",
 
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "next-action": "users"
             },
 
             body: JSON.stringify(newUser),
         })
         const data = await resp.json()
+        console.log(data)
         return data
     } catch (error) {
         console.log(error)

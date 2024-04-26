@@ -1,13 +1,20 @@
 "use client"
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { addNewUser } from "@/redux/userSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const SignUp = () =>{
 
     const [user, setUser] = useState({})
+    const dispatch = useDispatch()
+    const router = useRouter()
 
-    // const handleAddUser = async () =>{
-
-    // }
+    const handleAddUser = async (event) =>{
+        event.preventDefault()
+        const response = await dispatch(addNewUser(user))
+        if(response) router.push('/login')
+    }
 
     return(
         <>
@@ -39,7 +46,7 @@ const SignUp = () =>{
                         </div>
 
                         <div>
-                            <button type="submit" className="flex w-full justify-center rounded-md bg-gray-900 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign up</button>
+                            <button onClick={(event) => handleAddUser(event)} className="flex w-full justify-center rounded-md bg-gray-900 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign up</button>
                         </div>
                     </form>
 
