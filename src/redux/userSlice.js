@@ -57,17 +57,17 @@ export const userSlice = createSlice({
                 state.error = action.payload
             })
             .addCase(addNewUser.fulfilled, (state, action) => {
-                state.addNewUserStatus = 'the user was registered successfully'
+                console.log('the user was registered successfully')
                 state.loading = false
                 state.error = null
             })
             .addCase(addNewUser.pending, (state, action) => {
-                state.addNewUserStatus = 'the user is being created in this moment'
+                console.log('the user is being created in this moment')
                 state.loading = true
                 state.error = null
             })
             .addCase(addNewUser.rejected, (state, action) => {
-                state.addNewUserStatus = 'the user was not registered'
+                console.log('the user was not registered')
                 state.loading = false
                 state.error = action.payload
             })
