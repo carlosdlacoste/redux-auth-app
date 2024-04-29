@@ -1,4 +1,5 @@
 "use client"
+import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { addNewUser } from "@/redux/userSlice";
@@ -54,7 +55,9 @@ const SignUp = () =>{
 
                     <p className="mt-10 text-center text-sm text-gray-500">
                         Already have an account? {" "}
-                        <span href="#" className="font-semibold leading-6 text-gray-800 hover:text-gray-400 cursor-pointer">Sign in</span>
+                        <Link href="/login">
+                            <span href="#" className="font-semibold leading-6 text-gray-800 hover:text-gray-400 cursor-pointer">Sign in</span>
+                        </Link>
                     </p>
                 </div>
             </div>

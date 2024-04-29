@@ -37,7 +37,9 @@ const Login = () =>{
 
                     <p className="mt-10 text-center text-sm text-gray-500">
                         Don't have an account yet? {" "}
-                        <span className="font-semibold leading-6 text-gray-800 hover:text-gray-400 cursor-pointer">Sign up</span>
+                        <Link href="/signup">
+                            <span className="font-semibold leading-6 text-gray-800 hover:text-gray-400 cursor-pointer">Sign up</span>
+                        </Link>
                     </p>
                 </div>
             </div>
