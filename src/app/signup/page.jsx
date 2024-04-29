@@ -13,7 +13,9 @@ const SignUp = () =>{
     const handleAddUser = async (event) =>{
         event.preventDefault()
         const response = await dispatch(addNewUser(user))
-        if(response) router.push('/login')
+        if(response.type === addNewUser.fulfilled.type) {
+            router.push('/login')
+        }
     }
 
     return(
