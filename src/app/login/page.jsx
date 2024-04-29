@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Login = () =>{
 
     return(
@@ -35,7 +37,7 @@ const Login = () =>{
 
                     <p className="mt-10 text-center text-sm text-gray-500">
                         Don't have an account yet? {" "}
-                        <a href="#" className="font-semibold leading-6 text-gray-800 hover:text-gray-400">Sign up</a>
+                        <span className="font-semibold leading-6 text-gray-800 hover:text-gray-400 cursor-pointer">Sign up</span>
                     </p>
                 </div>
             </div>

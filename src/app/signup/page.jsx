@@ -54,7 +54,7 @@ const SignUp = () =>{
 
                     <p className="mt-10 text-center text-sm text-gray-500">
                         Already have an account? {" "}
-                        <a href="#" className="font-semibold leading-6 text-gray-800 hover:text-gray-400">Sign in</a>
+                        <span href="#" className="font-semibold leading-6 text-gray-800 hover:text-gray-400 cursor-pointer">Sign in</span>
                     </p>
                 </div>
             </div>
