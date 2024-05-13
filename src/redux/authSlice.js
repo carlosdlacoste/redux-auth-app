@@ -1,7 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-export const login = createAsyncThunk("auth/user", async (email, password) => {
+export const login = createAsyncThunk("auth/user", async ({email, password}) => {
+    // createAsyncThunk espera recibir siempre un objeto, entonces si se va a recibir mas de un parametro se deben colocar entre los simbolos de llaves para simular ese objeto que se recibe, la otra forma es mandar y recibir directamente el objeto con la informacion dentro del mismo
     try {
+        // console.log(email);
+        // console.log(password);
         const resp = await fetch('/api/auth', {
             method: "POST",
             headers: {
@@ -12,11 +15,17 @@ export const login = createAsyncThunk("auth/user", async (email, password) => {
                 password: password
             })
         })
+        if (!resp.ok) {
+            // Si la respuesta no es exitosa, lanza un error con el estado y el texto de la respuesta
+            throw new Error(`HTTP error! status: ${resp.status}, ${await resp.text()}`);
+        }
         const data = await resp.json()
-        console.log(data)
+        // console.log(data)
         return data
     } catch (error) {
-        console.log(error);
+        console.error('Error en la solicitud:', error);
+        // Utiliza rejectWithValue para pasar el error a tu lógica de Redux
+        // return rejectWithValue(error.message);
     }
 })
 
@@ -37,9 +46,8 @@ export const authSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(login.fulfilled, (state, action) => {
-                const {token, user} = action.payload
-                state.token = token
-                state.userLoggedIn = user
+                state.token = action.payload.token
+                state.userLoggedIn = action.payload.user
                 state.loading = false
                 state.error = null
             })
