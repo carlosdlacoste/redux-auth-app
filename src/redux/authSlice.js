@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-export const login = createAsyncThunk("auth/user", async ({email, password}) => {
+export const login = createAsyncThunk("auth/user", async ({email, password}, {dispatch}) => {
     // createAsyncThunk espera recibir siempre un objeto, entonces si se va a recibir mas de un parametro se deben colocar entre los simbolos de llaves para simular ese objeto que se recibe, la otra forma es mandar y recibir directamente el objeto con la informacion dentro del mismo
     try {
         const resp = await fetch('/api/auth', {
@@ -18,9 +18,9 @@ export const login = createAsyncThunk("auth/user", async ({email, password}) => 
             throw new Error(`HTTP error! status: ${resp.status}, ${await resp.text()}`);
         }
         const data = await resp.json()
-        sessionStorage.setItem('token', data.token)
-        localStorage.setItem('user', JSON.stringify(data.user))
-        // console.log(data)
+        // sessionStorage.setItem('token', data.token)
+        // localStorage.setItem('user', JSON.stringify(data.user))
+
         return data
     } catch (error) {
         console.error('Error en la solicitud:', error);
@@ -38,17 +38,10 @@ export const authSlice = createSlice({
         error: null
     },
     reducers: {
-        // logout: (state) => {
-        //     state.isLoggedIn = false
-        //     state.user = null
-        // }
-        // setUserWithStorage: (state, action) => {
-        //     const {token, user} = action.payload
-        //     state.token = token
-        //     state.userLoggedIn = user
-        //     sessionStorage.setItem("token", state.token)
-        //     // localStorage.setItem("user", state.userLoggedIn)
-        // },
+        setUserWithStorage: (state) => {
+            sessionStorage.setItem("token", state.token)
+            localStorage.setItem("user", JSON.stringify(state.userLoggedIn))
+        },
         removeUserFromStorage: (state) => {
             sessionStorage.removeItem("token")
             localStorage.removeItem("user")
@@ -76,5 +69,5 @@ export const authSlice = createSlice({
 })
 
 
-export const {removeUserFromStorage} = authSlice.actions
+export const {setUserWithStorage ,removeUserFromStorage} = authSlice.actions
 export default authSlice.reducer

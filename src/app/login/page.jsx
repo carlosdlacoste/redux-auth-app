@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/navigation";
 import { login } from "@/redux/authSlice";
+import { setUserWithStorage } from "@/redux/authSlice";
 
 const Login = () =>{
 
@@ -16,6 +17,7 @@ const Login = () =>{
         event.preventDefault()
         const response = await dispatch(login({email, password}))
         if(response.type === login.fulfilled.type) {
+            await dispatch(setUserWithStorage())
             router.push('/')
         }
     }
