@@ -18,16 +18,6 @@ const Login = () =>{
         if(response.type === login.fulfilled.type) {
             router.push('/')
         }
-        // event.preventDefault();
-        // try {
-        //     const actionResult = await dispatch(login(email, password));
-        //     const userData = unwrapResult(actionResult);
-        //     // Si la acción fue exitosa, redirige al usuario
-        //     router.push('/');
-        // } catch (error) {
-        //     // Maneja el error aquí, por ejemplo, mostrando un mensaje al usuario
-        //     console.error('Error al iniciar sesión:', error);
-        // }
     }
 
     return(
