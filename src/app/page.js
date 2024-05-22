@@ -10,13 +10,12 @@ export default function Home() {
 
   const dispatch = useDispatch()
   // const users = useSelector(state => state.users)
-  const token = useSelector(state => state.auth.token)
+  // const token = useSelector(state => state.auth.token)
 
   useEffect(() =>{
     dispatch(getUsers())
   }, [])
 
-  console.log(token)
 
   return (
       <>
