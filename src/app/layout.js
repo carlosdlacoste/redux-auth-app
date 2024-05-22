@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
           <NavBar/>
           {children}
         </MyProvider>
-        <script src="https://kit.fontawesome.com/28f70fe2d6.js" crossOrigin="anonymous" />
+        <script src={process.env.FONT_AWESOME_KIT_URL} crossOrigin="anonymous" />
       </body>
     </html>
   );
