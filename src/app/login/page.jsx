@@ -23,6 +23,11 @@ const Login = () =>{
         }
     }
 
+    const handleVisibilityPassword = (event) => {
+        event.preventDefault()
+        setShowPassword(!showPassword)
+    }
+
     return(
         <>
             <div className="flex h-screen flex-col justify-center items-center px-6 py-12 lg:px-8">
@@ -47,9 +52,18 @@ const Login = () =>{
                                 </div>
                             </div>
                             <div className="mt-2 relative">
-                                <input id="password" name="password" onChange={(event) => setPassword(event.target.value)} value={password || ''} type="password" autoComplete="current-password" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm p-2 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"/>
+                                <input id="password" name="password" onChange={(event) => setPassword(event.target.value)} value={password || ''} type={showPassword ? "text": "password"} autoComplete="current-password" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm p-2 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"/>
                                 <div className="absolute inset-y-0 right-0 flex items-center pr-3">
-                                    <i className="fa-regular fa-eye" />
+                                    {
+                                        !showPassword ?
+                                        <>
+                                            <i className="fa-regular fa-eye cursor-pointer" onClick={(event) => handleVisibilityPassword(event)}/>
+                                        </>
+                                        :
+                                        <>
+                                            <i className="fa-regular fa-eye-slash cursor-pointer" onClick={(event) => handleVisibilityPassword(event)}/>
+                                        </>
+                                    }
                                 </div>
                             </div>
                         </div>
