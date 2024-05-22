@@ -17,7 +17,12 @@ export async function POST(request) {
         if(correctPassword){
                 const secret = process.env.JWT_SECRET
                 const token = jwt.sign({email: userRegistered.email}, secret, {expiresIn: "20m"})
-                return NextResponse.json({"token": token, "user": userRegistered})
+                const userWithoutPassword = {
+                    id: userRegistered.id,
+                    fullName: userRegistered.fullName,
+                    email: userRegistered.email
+                }
+                return NextResponse.json({"token": token, "user": userWithoutPassword})
         }
         return NextResponse.json({"message": "password doesn't match"}, {status: 401})
     } catch (error) {
