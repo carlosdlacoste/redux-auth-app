@@ -11,6 +11,7 @@ const Login = () =>{
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [showPassword, setShowPassword] = useState(false)
+    const [passwordIsEmpty, setPasswordIsEmpty] = useState(false)
     const dispatch = useDispatch()
     const router = useRouter()
 
@@ -68,7 +69,8 @@ const Login = () =>{
                             </div>
                         </div>
 
-                        <div>
+                        <div className="grid gap-y-3">
+                            <button className="flex justify-center w-full bg-gray-300 text-red-500 rounded-md px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm hover:bg-gray-500 hover:border-2 border-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Clear Password</button>
                             <button onClick={(event) => handleLogIn(event)} className="flex w-full justify-center rounded-md bg-gray-900 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
                         </div>
                     </form>
