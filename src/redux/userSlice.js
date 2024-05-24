@@ -12,6 +12,16 @@ export const getUsers = createAsyncThunk('get/users', async () =>{
     }
 })
 
+export const getUserByID = createAsyncThunk('get/user', async (params) =>{
+    try {
+        const resp = await fetch(`/api/users/${params.id}`)
+        const data = await resp.json()
+        return data
+    } catch (error) {
+        console.log(error)
+    }
+})
+
 export const addNewUser = createAsyncThunk('post/new_user', async (newUser) => {
     try {
         const resp = await fetch("/api/users", {
@@ -33,6 +43,7 @@ export const addNewUser = createAsyncThunk('post/new_user', async (newUser) => {
 
 const initialState = {
     data: [],
+    userByID: {},
     loading: false,
     error: null
 }
@@ -68,6 +79,19 @@ export const userSlice = createSlice({
             })
             .addCase(addNewUser.rejected, (state, action) => {
                 console.log('the user was not registered')
+                state.loading = false
+                state.error = action.payload
+            })
+            .addCase(getUserByID.fulfilled, (state, action) => {
+                state.userByID = action.payload
+                state.loading = false
+                state.error = null
+            })
+            .addCase(getUserByID.pending, (state, action) => {
+                state.loading = true
+                state.error = null
+            })
+            .addCase(getUserByID.rejected, (state, action) => {
                 state.loading = false
                 state.error = action.payload
             })
