@@ -57,11 +57,11 @@ const Login = () =>{
                                     {
                                         !showPassword ?
                                         <>
-                                            <i className="fa-regular fa-eye cursor-pointer" onClick={(event) => handleVisibilityPassword(event)}/>
+                                            <i className="fa-regular fa-eye-slash cursor-pointer" onClick={(event) => handleVisibilityPassword(event)}/>
                                         </>
                                         :
                                         <>
-                                            <i className="fa-regular fa-eye-slash cursor-pointer" onClick={(event) => handleVisibilityPassword(event)}/>
+                                            <i className="fa-regular fa-eye cursor-pointer" onClick={(event) => handleVisibilityPassword(event)}/>
                                         </>
                                     }
                                 </div>
