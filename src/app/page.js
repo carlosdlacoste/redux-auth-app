@@ -16,26 +16,17 @@ export default function Home() {
   const token = useSelector(state => state.auth.token)
   const user = useSelector(state => state.auth.userLoggedIn)
   const router = useRouter()
-  // useEffect(() =>{
-  //   dispatch(getUsers())
-  // }, [])
-  console.log(user)
+  useEffect(() =>{
+    if(token) router.push(`/profile/${user?.id}`)
+  }, [])
 
   return (
       <>
-      <h1 className="text-2xl text-slate-600 uppercase">Hola Mundo Magnifico</h1>
-      <button onClick={() => router.push(`/profile/${user?.id}`)}>View Profile</button>
-        {/* {token ?
-        <>
-        <Link href={`/profile/${params.id}`}>
-          <Profile/>
-        </Link>
-        </>
-        :
-        <>
-          <h1 className="text-2xl text-slate-600 uppercase">Hola Mundo Magnifico</h1>
-        </>
-        } */}
+        {!token &&
+          <>
+            <h1 className="text-2xl text-slate-600 uppercase">Hola Mundo Magnifico</h1>
+          </>
+        }
 
       </>
   );
