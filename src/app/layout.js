@@ -19,6 +19,7 @@ export default function RootLayout({ children }) {
           {children}
         </MyProvider>
         <script src={process.env.FONT_AWESOME_KIT_URL} crossOrigin="anonymous" />
+        <script src="../path/to/flowbite/dist/flowbite.min.js" />
       </body>
     </html>
   );
