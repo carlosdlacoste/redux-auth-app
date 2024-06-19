@@ -12,11 +12,12 @@ const Profile = ({params}) => {
         dispatch(getUserByID(params))
     }, [])
 
+
     return(
         <>
             <div className="flex h-screen flex-col justify-center items-center px-6 py-12 lg:px-8">
                 <div className="mb-7 pb-2">
-                    <h3 className="text-2xl font-bold color-change">Bienvenido {user.fullName.split(' ')[0]}!</h3>
+                    <h3 className="text-2xl font-bold color-change">Bienvenido {user && user.fullName ? user.fullName.split(' ')[0] : " "}!</h3>
                 </div>
                 <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <div className="flex flex-col items-center">

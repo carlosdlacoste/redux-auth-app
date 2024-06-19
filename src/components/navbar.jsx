@@ -24,15 +24,15 @@ const NavBar = () =>{
                             {!token ?
                             <>
                                 <Link href="/login">
-                                    <button className="bg-green-700 hover:bg-slate-300 py-2 px-4 rounded-md border-2 border-slate-50 text-sm">Log In</button>
+                                    <button className="bg-green-700 hover:bg-slate-300 py-2 px-4 rounded-md border-2 border-slate-50 text-sm text-white">Log In</button>
                                 </Link>
                                 <Link href="/signup">
-                                    <button className="bg-yellow-600 hover:bg-slate-300 py-2 px-4 rounded-md border-2 border-slate-50 text-sm">Sign up</button>
+                                    <button className="bg-yellow-600 hover:bg-slate-300 py-2 px-4 rounded-md border-2 border-slate-50 text-sm text-white">Sign up</button>
                                 </Link>
                             </>
                             :
                             <>
-                                    <button className="bg-red-700 hover:bg-slate-300 py-2 px-4 rounded-md border-2 border-slate-50 text-sm" onClick={handleLogOut}>Log Out</button>
+                                    <button className="bg-red-700 hover:bg-slate-300 py-2 px-4 rounded-md border-2 border-slate-50 text-sm text-white" onClick={handleLogOut}>Log Out</button>
                             </>
 
                             }
