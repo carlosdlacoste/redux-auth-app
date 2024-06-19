@@ -17,7 +17,7 @@ const Profile = ({params}) => {
         <>
             <div className="flex h-screen flex-col justify-center items-center px-6 py-12 lg:px-8">
                 <div className="mb-7 pb-2">
-                    <h3 className="text-2xl font-bold color-change">Bienvenido {user && user.fullName ? user.fullName.split(' ')[0] : " "}!</h3>
+                    <h3 className="text-2xl font-bold color-change">Bienvenido {user && user.fullName ? user.fullName.split(' ')[0] : "..."}!</h3>
                 </div>
                 <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <div className="flex flex-col items-center">
@@ -34,17 +34,17 @@ const Profile = ({params}) => {
                             <tbody>
                                 <tr className="bg-gray-700 border-b dark:bg-gray-800 dark:border-gray-700">
                                     <th scope="row" className="text-center px-6 py-4 font-medium text-white whitespace-nowrap dark:text-gray-900" colSpan="100%">
-                                        <i className="fa-solid fa-id-card" /> : {user.id}
+                                        <i className="fa-solid fa-id-card" /> : {user ? user.id : "..."}
                                     </th>
                                 </tr>
                                 <tr className="bg-gray-700 border-b dark:bg-gray-800 dark:border-gray-700">
                                     <th scope="row" className="text-center px-6 py-4 font-medium text-white whitespace-nowrap dark:text-gray-900" colSpan="100%">
-                                        <i className="fa-solid fa-signature" /> : {user.fullName}
+                                        <i className="fa-solid fa-signature" /> : {user ? user.fullName : "..."}
                                     </th>
                                 </tr>
                                 <tr className="bg-gray-700 dark:bg-gray-800">
                                     <th scope="row" className="text-center px-6 py-4 font-medium text-white whitespace-nowrap dark:text-gray-900" colSpan="100%">
-                                        <i className="fa-solid fa-envelope" /> : {user.email}
+                                        <i className="fa-solid fa-envelope" /> : {user ? user.email : "..."}
                                     </th>
                                 </tr>
                             </tbody>
