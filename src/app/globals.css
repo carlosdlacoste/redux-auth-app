@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import 'flowbite';
 
 @keyframes colorChange {
     0%, 100% {
