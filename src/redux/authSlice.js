@@ -38,7 +38,7 @@ export const authSlice = createSlice({
         error: null
     },
     reducers: {
-        getUserFromStorage: (state, action) =>{
+        getUserFromStorage: (state) =>{
             state.token = sessionStorage.getItem('token');
             state.userLoggedIn = JSON.parse(localStorage.getItem('user'));
             state.loading = false;
