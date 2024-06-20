@@ -1,13 +1,20 @@
 "use client"
 import Link from "next/link";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeUserFromStorage } from "@/redux/authSlice";
+import { getUserFromStorage } from "@/redux/authSlice";
 import { useRouter } from "next/navigation";
 
 const NavBar = () =>{
     const dispatch = useDispatch()
     const token = useSelector(state => state.auth.token)
     const router = useRouter()
+
+    useEffect(() => {
+        dispatch(getUserFromStorage())
+    }, []);
+
     const handleLogOut = () =>{
         dispatch(removeUserFromStorage())
         router.push("/")

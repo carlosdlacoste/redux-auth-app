@@ -38,6 +38,10 @@ export const authSlice = createSlice({
         error: null
     },
     reducers: {
+        getUserFromStorage: (state, action) =>{
+            state.token = sessionStorage.getItem('token');
+            state.userLoggedIn = JSON.parse(localStorage.getItem('user'));
+        },
         setUserWithStorage: (state) => {
             sessionStorage.setItem("token", state.token)
             localStorage.setItem("user", JSON.stringify(state.userLoggedIn))
@@ -69,5 +73,5 @@ export const authSlice = createSlice({
 })
 
 
-export const {setUserWithStorage ,removeUserFromStorage} = authSlice.actions
+export const {getUserFromStorage, setUserWithStorage ,removeUserFromStorage} = authSlice.actions
 export default authSlice.reducer
