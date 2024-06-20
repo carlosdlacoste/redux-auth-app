@@ -41,6 +41,7 @@ export const authSlice = createSlice({
         getUserFromStorage: (state, action) =>{
             state.token = sessionStorage.getItem('token');
             state.userLoggedIn = JSON.parse(localStorage.getItem('user'));
+            state.loading = false;
         },
         setUserWithStorage: (state) => {
             sessionStorage.setItem("token", state.token)

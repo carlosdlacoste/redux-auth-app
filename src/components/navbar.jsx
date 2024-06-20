@@ -9,11 +9,13 @@ import { useRouter } from "next/navigation";
 const NavBar = () =>{
     const dispatch = useDispatch()
     const token = useSelector(state => state.auth.token)
+    // const loading = useSelector(state => state.auth.loading)
     const router = useRouter()
 
     useEffect(() => {
         dispatch(getUserFromStorage())
     }, []);
+
 
     const handleLogOut = () =>{
         dispatch(removeUserFromStorage())
