@@ -2,11 +2,15 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
 import { getUserByID } from "@/redux/userSlice"
+import Swal from 'sweetalert2'
 
 const Profile = ({params}) => {
 
     const dispatch = useDispatch()
     const user = useSelector(state => state.users.userByID)
+    // const unAuthorizedAlert = Swal.fire({
+
+    // })
 
     useEffect(() => {
         dispatch(getUserByID(params))
