@@ -3,17 +3,33 @@ import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
 import { getUserByID } from "@/redux/userSlice"
 import Swal from 'sweetalert2'
+import { useRouter } from "next/navigation"
 
 const Profile = ({params}) => {
 
     const dispatch = useDispatch()
     const user = useSelector(state => state.users.userByID)
+    const token = useSelector(state => state.auth.token)
+    const router = useRouter()
     // const unAuthorizedAlert = Swal.fire({
-
-    // })
+    //     title: "Error: Unauthorized",
+    //     text: "You have no permissions to see this page. Please, sign in or sign up!",
+    //     icon: "error"
+    // }).then((result) => {
+    //     router.push('/')
+    // });
 
     useEffect(() => {
-        dispatch(getUserByID(params))
+        if(!token){
+            Swal.fire({
+                title: "Error: Unauthorized",
+                text: "You have no permissions to see this page. Please, sign in or sign up!",
+                icon: "error"
+            }).then((result) => {
+                router.push('/')
+        });
+        }
+        else dispatch(getUserByID(params))
     }, [])
 
 
