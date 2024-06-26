@@ -24,7 +24,7 @@ const Profile = ({params}) => {
             if(!token){
                 Swal.fire({
                     title: "Error: Unauthorized",
-                    text: "You have no permissions to see this page. Please, sign in or sign up!",
+                    html: "You have no permissions to see this page.<br>Please, sign in or sign up!",
                     icon: "error",
                     background: "rgb(17 24 39)",
                     color: "white",
