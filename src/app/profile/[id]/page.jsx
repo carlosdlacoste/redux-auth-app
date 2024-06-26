@@ -25,7 +25,10 @@ const Profile = ({params}) => {
                 Swal.fire({
                     title: "Error: Unauthorized",
                     text: "You have no permissions to see this page. Please, sign in or sign up!",
-                    icon: "error"
+                    icon: "error",
+                    background: "rgb(17 24 39)",
+                    color: "white",
+                    confirmButtonColor: "rgb(185 28 28)"
                 })
                 router.push('/')
             }
