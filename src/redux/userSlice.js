@@ -1,4 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+// import { useSelector } from "react-redux";
+// import { selectAuthToken } from "./authSlice";
 
 
 export const getUsers = createAsyncThunk('get/users', async () =>{
@@ -12,9 +14,19 @@ export const getUsers = createAsyncThunk('get/users', async () =>{
     }
 })
 
-export const getUserByID = createAsyncThunk('get/user', async (params) =>{
+export const getUserByID = createAsyncThunk('get/user', async (params, thunkAPI) =>{
+    const token = thunkAPI.getState().auth.token
+    // console.log(token)
     try {
-        const resp = await fetch(`/api/users/${params.id}`)
+        const resp = await fetch(`/api/users/${params.id}`, {
+            method: 'GET',
+            mode: "cors",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            }
+        })
+        // console.log(token)
         const data = await resp.json()
         return data
     } catch (error) {
