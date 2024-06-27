@@ -9,7 +9,6 @@ export async function GET(request) {
         const users = await prisma.user.findMany()
         if (users.length !== 0) return NextResponse.json(users, {status: 200})
         return NextResponse.json({"message": "There are no users!"}, {status: 404})
-        
     } catch (error) {
         return NextResponse.json(error.message)
     }

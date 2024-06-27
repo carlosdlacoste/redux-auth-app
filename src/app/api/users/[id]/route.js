@@ -4,9 +4,7 @@ import jwt from 'jsonwebtoken'
 
 
 export async function GET(request, {params}){
-    // console.log(request.headers.get('authorization'));
     const authorization = request.headers.get('authorization')
-    // console.log(authorization)
     if(!authorization) return NextResponse.json({"message": "The auth token was not provided"}, {status: 401})
     const token = authorization.split(' ')[1]
     if (!token) return NextResponse.json({"message": "Token is missing or format is incorrect"}, {status: 401});
