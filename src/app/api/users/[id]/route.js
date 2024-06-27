@@ -27,6 +27,8 @@ export async function GET(request, {params}){
 
 
 export async function DELETE(request, {params}) {
+    const secretKey = request.headers.get('x-secret-key')
+    if(secretKey !== process.env.MY_SECRET_KEY) return NextResponse.json({"message": "You have no permission to this action"})
     try {
         const user = await prisma.user.findUnique({
             where: {
