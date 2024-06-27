@@ -2,7 +2,9 @@ import {NextResponse} from "next/server";
 import {prisma} from "@/libs/prisma";
 import bcrypt from "bcrypt";
 
-export async function GET() {
+export async function GET(request) {
+    const secretKey = request.headers.get('x-secret-key')
+    if(secretKey !== process.env.MY_SECRET_KEY) return NextResponse.json({"message": "Access denied"})
     try {
         const users = await prisma.user.findMany()
         if (users.length !== 0) return NextResponse.json(users, {status: 200})
