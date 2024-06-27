@@ -15,10 +15,10 @@ export async function GET(request, {params}){
         if(!userVerified) return NextResponse.json({"message": "Error! You are not authorized"}, {status: 404})
         const user = await prisma.user.findUnique({
             where: {
-                id: Number(params.id)
+                id: Number(userVerified.id)
             }
         })
-        if(user !== null) return NextResponse.json(user, {status: 200})
+        if(user !== null && Number(params.id) === Number(userVerified.id)) return NextResponse.json(user, {status: 200})
         return NextResponse.json({"message": "Error! That user doesn't exist"}, {status: 404})
     } catch (error) {
         return NextResponse.json(error.message)

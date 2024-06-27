@@ -16,7 +16,7 @@ export async function POST(request) {
         const correctPassword = await bcrypt.compare(password, userRegistered.password)
         if(correctPassword){
                 const secret = process.env.JWT_SECRET
-                const token = jwt.sign({email: userRegistered.email}, secret, {expiresIn: "20m"})
+                const token = jwt.sign({id: userRegistered.id, email: userRegistered.email}, secret, {expiresIn: "20m"})
                 const userWithoutPassword = {
                     id: userRegistered.id,
                     fullName: userRegistered.fullName,
