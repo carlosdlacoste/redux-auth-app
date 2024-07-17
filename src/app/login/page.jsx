@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { useRouter } from "next/navigation";
 import { login } from "@/redux/authSlice";
 import { setUserWithStorage } from "@/redux/authSlice";
+import Swal from "sweetalert2"
 
 const Login = () =>{
 
@@ -20,6 +21,20 @@ const Login = () =>{
         const response = await dispatch(login({email, password}))
         if(response.type === login.fulfilled.type) {
             await dispatch(setUserWithStorage())
+            Swal.fire({
+                position: 'top-end',
+                title: 'Welcome!',
+                html: "You've successfully logged in!",
+                icon: 'success',
+                color: 'white',
+                background: "rgb(17 24 39)",
+                showConfirmButton: false,
+                timer: 2500,
+                customClass:{
+                    popup: 'custom-alert-position'
+                }
+
+            })
             router.push('/')
         }
     }
