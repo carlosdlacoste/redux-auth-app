@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { addNewUser } from "@/redux/userSlice";
 import { useDispatch, useSelector } from "react-redux";
+import Swal from 'sweetalert2'
 
 const SignUp = () =>{
 
@@ -15,6 +16,15 @@ const SignUp = () =>{
         event.preventDefault()
         const response = await dispatch(addNewUser(user))
         if(response.type === addNewUser.fulfilled.type) {
+            Swal.fire({
+                position: 'top-end',
+                title: 'User registered successfully!',
+                icon: 'success',
+                color: 'white',
+                background: "rgb(17 24 39)",
+                confirmButtonColor: "rgb(21 128 61)",
+                confirmButtonText: 'Great!'
+            })
             router.push('/login')
         }
     }
