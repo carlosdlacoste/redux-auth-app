@@ -23,7 +23,10 @@ const SignUp = () =>{
                 color: 'white',
                 background: "rgb(17 24 39)",
                 confirmButtonColor: "rgb(21 128 61)",
-                confirmButtonText: 'Great!'
+                confirmButtonText: 'Great!',
+                customClass:{
+                    popup: 'custom-alert-position'
+                }
             })
             router.push('/login')
         }
