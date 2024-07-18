@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { addNewUser } from "@/redux/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from 'sweetalert2'
+import 'animate.css'
 
 const SignUp = () =>{
 
@@ -26,6 +27,12 @@ const SignUp = () =>{
                 confirmButtonText: 'Great!',
                 customClass:{
                     popup: 'custom-alert-position'
+                },
+                showClass: {
+                    popup: `animate__animated animate__slideInRight`
+                },
+                hideClass: {
+                    popup: `animate__animated animate__slideOutRight`
                 }
             })
             router.push('/login')
