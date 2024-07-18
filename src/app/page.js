@@ -24,7 +24,9 @@ export default function Home() {
       <>
         {!token &&
           <>
-            <h1 className="text-2xl text-slate-600 uppercase">Hola Mundo Magnifico</h1>
+            <div className="flex h-screen justify-center items-center">
+              <h1 className="text-2xl text-slate-600">Bienvenido al moderno sistema de autenticación Redux-Auth-System!</h1>
+            </div>
           </>
         }
 
