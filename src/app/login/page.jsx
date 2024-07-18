@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { login } from "@/redux/authSlice";
 import { setUserWithStorage } from "@/redux/authSlice";
 import Swal from "sweetalert2"
+import 'animate.css'
 
 const Login = () =>{
 
@@ -32,6 +33,12 @@ const Login = () =>{
                 timer: 2500,
                 customClass:{
                     popup: 'custom-alert-position'
+                },
+                showClass: {
+                    popup: `animate__animated animate__slideInRight`
+                },
+                hideClass: {
+                    popup: `animate__animated animate__slideOutRight`
                 }
 
             })
