@@ -24,8 +24,15 @@ export default function Home() {
       <>
         {!token &&
           <>
-            <div className="flex h-screen justify-center items-center">
-              <h1 className="text-2xl text-slate-600">Bienvenido al moderno sistema de autenticación Redux-Auth-System!</h1>
+            <h1 className="text-2xl text-center text-slate-600 font-bold p-6">Bienvenido al moderno sistema de autenticación Redux-Auth-System!</h1>
+            <div className="flex h-screen justify-center items-center px-6 py-12">
+              <p className="text-center text-xl">
+                Redux-Auth-System es tu solución segura y confiable para la gestión de usuarios.
+                Regístrate o inicia sesión para acceder a todas nuestras funcionalidades
+                y disfrutar de una experiencia personalizada. Puedes encontrar los formularios de
+                registro y inicio de sesión en la sección de "Sign Up" y "Log In" respectivamente
+                en el NavBar que observas en la parte superior de tu pantalla &#x261D;.
+              </p>
             </div>
           </>
         }
