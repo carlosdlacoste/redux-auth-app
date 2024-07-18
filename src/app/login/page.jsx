@@ -44,6 +44,27 @@ const Login = () =>{
             })
             router.push('/')
         }
+        else{
+            Swal.fire({
+                position: 'top-end',
+                title: 'Error!',
+                html: "Invalid credentials. Please try again!",
+                icon: 'error',
+                color: 'white',
+                background: "rgb(17 24 39)",
+                showConfirmButton: false,
+                timer: 2500,
+                customClass:{
+                    popup: 'custom-alert-position'
+                },
+                showClass: {
+                    popup: `animate__animated animate__slideInRight`
+                },
+                hideClass: {
+                    popup: `animate__animated animate__slideOutRight`
+                }
+            })
+        }
     }
 
     const handlePassword = (event) => {

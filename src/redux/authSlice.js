@@ -23,9 +23,9 @@ export const login = createAsyncThunk("auth/user", async ({email, password}, {di
 
         return data
     } catch (error) {
-        console.error('Error en la solicitud:', error);
+        // console.error('Error en la solicitud:', error);
         // Utiliza rejectWithValue para pasar el error a tu lógica de Redux
-        // return rejectWithValue(error.message);
+        return rejectWithValue(error.message);
     }
 })
 
