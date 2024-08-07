@@ -33,7 +33,7 @@ export default function Home() {
               </p>
             <div className="flex flex-col justify-center items-center px-6 py-10">
               <h2 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Discover our functionalities:</h2>
-              <ul className="max-w-md space-y-1 text-gray-500 list-inside dark:text-gray-400">
+              <ul className="max-w-md space-y-8 text-gray-500 list-inside dark:text-gray-400">
                   <li>
                     <div className="flex items-center space-x-4">
                       <div className="flex">
@@ -44,13 +44,37 @@ export default function Home() {
                     </div>
                   </li>
                   <li>
-                      You can use visibility icon inside password's input to see what you are typing.
+                    <div className="flex items-center space-x-4">
+                      <div className="flex">
+                        <div className="mr-2">•</div>
+                        <span>You can use visibility icon inside password's input to see what you are typing.</span>
+                      </div>
+                      <Image src="/images/visibility_password.png" alt="Visibility password" width={200} height={200}/>
+                    </div>
                   </li>
                   <li>
-                      You can see a validation after you send your credentials in the login form. If credentials are correct, you will see a welcome message. In any other case, you will see an error message.
+                    <div className="flex items-center space-x-4">
+                      <div className="flex">
+                        <div className="mr-2">•</div>
+                        <span>You can see a validation after you send your credentials in the login form. If credentials are correct, you will see a welcome message. In any other case, you will see an error message.</span>
+                      </div>
+                      <div className="flex items-center space-x-4">
+                        <Image src="/images/succesful_login.png" alt="Succesful Login" width={200} height={200}/>
+                        <Image src="/images/invalid_credentials.png" alt="Invalid Credentials" width={200} height={200}/>
+                      </div>
+                    </div>
                   </li>
                   <li>
-                      When you are authenticated, you can see your profile info. In any other case, you will see an error alert due to you have no permission to see private views.
+                    <div className="flex items-center space-x-4">
+                      <div className="flex">
+                        <div className="mr-2">•</div>
+                        <span>When you are authenticated, you can see your profile info. In any other case, you will see an error alert due to you have no permission to see private views.</span>
+                      </div>
+                      <div className="flex items-center space-x-4">
+                        <Image src="/images/profile_view.png" alt="Succesful Login" width={200} height={200}/>
+                        <Image src="/images/permission_error.png" alt="Invalid Credentials" width={200} height={200}/>
+                      </div>
+                    </div>
                   </li>
               </ul>
             </div>
