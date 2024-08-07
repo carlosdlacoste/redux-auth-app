@@ -31,11 +31,17 @@ export default function Home() {
                 You can find the registration and login forms in the “Sign Up” and “Log In” sections respectively
                 in the NavBar at the top of your screen &#x261D;.
               </p>
-            <div className="flex flex-col h-screen justify-center items-center px-6 py-6">
+            <div className="flex flex-col justify-center items-center px-6 py-10">
               <h2 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Discover our functionalities:</h2>
-              <ul className="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
+              <ul className="max-w-md space-y-1 text-gray-500 list-inside dark:text-gray-400">
                   <li>
-                      In login page you can clear the whole password if you made a mistake while you were typing it.
+                    <div className="flex items-center space-x-4">
+                      <div className="flex">
+                        <div className="mr-2">•</div>
+                        <span>In login page you can clear the whole password if you made a mistake while you were typing it.</span>
+                      </div>
+                      <Image src="/images/clear_password.png" alt="Clear password" width={200} height={200}/>
+                    </div>
                   </li>
                   <li>
                       You can use visibility icon inside password's input to see what you are typing.
