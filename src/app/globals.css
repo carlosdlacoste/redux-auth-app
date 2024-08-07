@@ -19,3 +19,12 @@
 .custom-alert-position{
     top: 70px;
 }
+
+@media (max-height: 1000px){
+    .home-image{
+        background-image: linear-gradient(rgba(5, 121, 207, 0.8 ), rgba(5, 121, 207, 0.8 )), url(/images/lock_wallpaper.jpeg);
+        /* opacity: 0.8; */
+        background-size: cover;
+        min-height: 100vh;
+    }
+}
